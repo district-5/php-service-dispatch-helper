@@ -1,0 +1,7 @@
+.DS_Store
+.idea
+.vagrant
+vendor/*
+!vendor/.gitkeep
+composer.lock
+auth.json

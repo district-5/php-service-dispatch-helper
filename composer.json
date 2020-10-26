@@ -1,0 +1,22 @@
+{
+  "name": "district5/service-dispatch-helper",
+  "description": "District5 MOWRM Templates",
+  "keywords": ["php", "district5", "service-dispatch-helper"],
+  "homepage": "https://github.com/district-5/php-service-dispatch-helper",
+  "license": "Proprietary",
+  "authors": [
+    {
+      "name": "Mark Morgan",
+      "email": "mark.morgan@district5.co.uk"
+    }
+  ],
+  "require": {
+    "php": ">=7.1"
+  },
+  "require-dev": {
+    "phpunit/phpunit": "7.*"
+  },
+  "autoload": {
+    "psr-4": { "District5\\": "src/" }
+  }
+}

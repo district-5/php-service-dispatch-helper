@@ -26,11 +26,9 @@ class ServiceDispatcher
         $baseDomainParts = explode('.', $baseDomain);
 
         $subdomain = join('.', explode('.', $_SERVER['HTTP_HOST'], 0 - count($baseDomainParts)));
-        error_log('subdomain:' . $subdomain);
 
         if (!array_key_exists($subdomain, $serviceMap))
         {
-            error_log('no subdomain found in service map');
             return null;
         }
 

@@ -40,7 +40,7 @@ class ServiceDispatcher
             return null;
         }
 
-        return $_SERVER[$serverVariableKey];
+        return $serviceMap[$_SERVER[$serverVariableKey]];
     }
 
     public static function getServiceFromSubdomain(string $baseDomain, array $serviceMap, string $serverVariableKey = 'HTTP_HOST') : ?string

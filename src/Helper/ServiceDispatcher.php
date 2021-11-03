@@ -21,14 +21,35 @@ namespace District5\Helper;
 class ServiceDispatcher
 {
 
-    public static function GetService(string $baseDomain, array $serviceMap) : ?string
+    /**
+     * @param string $baseDomain
+     * @param array $serviceMap
+     * @param string $serverVariableKey
+     * @return string|null
+     *
+     * @deprecated
+     */
+    public static function GetService(string $baseDomain, array $serviceMap, string $serverVariableKey = 'HTTP_HOST') : ?string
+    {
+        return static::getServiceFromSubdomain($baseDomain, $serviceMap, $serverVariableKey);
+    }
+
+    public static function getServiceFromPort(array $serviceMap, string $serverVariableKey = 'SERVER_PORT') : ?string
+    {
+        if (!array_key_exists($_SERVER[$serverVariableKey], $serviceMap)) {
+            return null;
+        }
+
+        return $_SERVER[$serverVariableKey];
+    }
+
+    public static function getServiceFromSubdomain(string $baseDomain, array $serviceMap, string $serverVariableKey = 'HTTP_HOST') : ?string
     {
         $baseDomainParts = explode('.', $baseDomain);
 
-        $subdomain = join('.', explode('.', $_SERVER['HTTP_HOST'], 0 - count($baseDomainParts)));
+        $subdomain = join('.', explode('.', $_SERVER[$serverVariableKey], 0 - count($baseDomainParts)));
 
-        if (!array_key_exists($subdomain, $serviceMap))
-        {
+        if (!array_key_exists($subdomain, $serviceMap)) {
             return null;
         }
 

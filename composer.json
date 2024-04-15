@@ -1,22 +1,25 @@
 {
   "name": "district5/service-dispatch-helper",
-  "description": "District5 MOWRM Templates",
+  "description": "District5 Service Dispatcher Library",
   "keywords": ["php", "district5", "service-dispatch-helper"],
   "homepage": "https://github.com/district-5/php-service-dispatch-helper",
-  "license": "Proprietary",
+  "license": "mit",
   "authors": [
     {
-      "name": "Mark Morgan",
-      "email": "mark.morgan@district5.co.uk"
+      "name": "District5",
+      "email": "hello@district5.co.uk"
     }
   ],
   "require": {
-    "php": ">=7.1"
+    "php": ">=7.4"
   },
   "require-dev": {
-    "phpunit/phpunit": "7.*"
+    "phpunit/phpunit": "9.*"
   },
   "autoload": {
-    "psr-4": { "District5\\": "src/" }
+    "psr-4": { "District5\\ServiceDispatch\\": "src/ServiceDispatch/" }
+  },
+  "autoload-dev": {
+    "psr-4": { "District5Tests\\ServiceDispatchTests\\": "tests/ServiceDispatchTests/" }
   }
 }
